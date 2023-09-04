@@ -1,0 +1,26 @@
+name: Test Deployment with E2E
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  component-e2e-tests:
+    name: Component and E2E Tests
+    uses: ./.github/workflows/cypress-tests.yml
+    if: github.event.review.state == 'approved' && !contains(github.event.pull_request.base.ref, 'release')
+    with:
+      test-url: http://localhost:3000
+    secrets: inherit
+
+  deploy-to-test:
+    name: Deploy to Test Environment
+    uses: ./.github/workflows/deployment.yml
+    needs: component-e2e-tests
+    with:
+      environment: test
+      public-domain: d3lay.test.delay.dev
+      public-twitter: delay_work
+      pr-id: ${{ github.event.pull_request.number }}
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -1,0 +1,36 @@
+name: Production Deployment
+
+on:
+  release:
+    types: [ released ]
+
+jobs:
+  find-pr-id:
+    name: Find PR ID
+    runs-on: ubuntu-latest
+    outputs:
+      pr-id: ${{ steps.findPR.outputs.pr }} 
+    steps:
+      - name: Find pull request ID
+        uses: jwalton/gh-find-current-pr@v1
+        id: findPR
+        with:
+          state: all
+          sha: ${{ github.sha }}
+      - name: Test pull request ID
+        if: success() && steps.findPr.outputs.number
+        run: echo $PR_ID
+        env:
+          PR_ID: ${{ steps.findPR.outputs.pr }}
+
+  deploy-to-production:
+    name: Deploy to Production Environment
+    uses: ./.github/workflows/deployment.yml
+    needs: find-pr-id
+    with:
+      environment: production
+      public-domain: d3lay.com
+      public-twitter: delay_work
+      pr-id: ${{ needs.find-pr-id.outputs.pr-id }}
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
