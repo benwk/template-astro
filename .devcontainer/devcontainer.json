@@ -1,46 +1,46 @@
 {
-	"name": "Astro template",
-	"build": {
-        "dockerfile": "Dockerfile"
-    },
-	// "runArgs": [
-    //     "--env-file", "${localWorkspaceFolder}/.devcontainer/.env"
-    // ],
-	"containerEnv": {
-		"PROJ_NAME": "template-astro",
-		"PROJ_DOMAIN": "astro.benwk.app",
-		"CONTRIBUTOR": "${localEnv:USER}",
-		"GPG_TTY": "$(tty)"
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"astro-build.astro-vscode",
-				"github.vscode-github-actions",
-				"bradlc.vscode-tailwindcss",
-				"svelte.svelte-vscode",
-				"GitHub.github-vscode-theme",
-				"PKief.material-icon-theme",
-				"formulahendry.auto-rename-tag",
-				"eamodio.gitlens",
-				"Rubymaniac.vscode-paste-and-indent",
-				"vivaxy.vscode-conventional-commits",
-				"bierner.markdown-checkbox",
-				"bierner.markdown-mermaid",
-				"esbenp.prettier-vscode"
-			],
-			"settings": {
-				"files.autoSave": "afterDelay",
-				"terminal.integrated.fontFamily": "FiraCode Nerd Font",
-				// "workbench.colorTheme": "GitHub Dark",
-				"workbench.iconTheme": "material-icon-theme",
-				"window.autoDetectColorScheme": true,
-				"workbench.preferredDarkColorTheme": "GitHub Dark",
-				"workbench.preferredLightColorTheme": "GitHub Light",
-				"terminal.integrated.defaultProfile.linux": "zsh",
-				"editor.tabSize": 2
-			}
-		} 
-	},
-	"postCreateCommand": "npm install"
+  "name": "Astro template",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  // "runArgs": [
+  //     "--env-file", "${localWorkspaceFolder}/.devcontainer/.env"
+  // ],
+  "containerEnv": {
+    "PROJ_NAME": "template-astro",
+    "PROJ_DOMAIN": "astro.benwk.app",
+    "CONTRIBUTOR": "${localEnv:USER}",
+    "GPG_TTY": "$(tty)"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "github.vscode-github-actions",
+        "bradlc.vscode-tailwindcss",
+        "svelte.svelte-vscode",
+        "GitHub.github-vscode-theme",
+        "PKief.material-icon-theme",
+        "formulahendry.auto-rename-tag",
+        "eamodio.gitlens",
+        "Rubymaniac.vscode-paste-and-indent",
+        "vivaxy.vscode-conventional-commits",
+        "bierner.markdown-checkbox",
+        "bierner.markdown-mermaid",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "files.autoSave": "afterDelay",
+        "terminal.integrated.fontFamily": "FiraCode Nerd Font",
+        // "workbench.colorTheme": "GitHub Dark",
+        "workbench.iconTheme": "material-icon-theme",
+        "window.autoDetectColorScheme": true,
+        "workbench.preferredDarkColorTheme": "GitHub Dark",
+        "workbench.preferredLightColorTheme": "GitHub Light",
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "editor.tabSize": 2
+      }
+    }
+  },
+  "postCreateCommand": "npm install"
 }

@@ -2,14 +2,14 @@ name: Staging Deployment
 
 on:
   release:
-    types: [ prereleased ]
+    types: [prereleased]
 
 jobs:
   find-pr-id:
     name: Find PR ID
     runs-on: ubuntu-latest
     outputs:
-      pr-id: ${{ steps.findPR.outputs.pr }} 
+      pr-id: ${{ steps.findPR.outputs.pr }}
     steps:
       - name: Find pull request ID
         uses: jwalton/gh-find-current-pr@v1

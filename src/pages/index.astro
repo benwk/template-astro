@@ -1,150 +1,165 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 const currentURL = Astro.request.url;
 const currentPath = new URL(currentURL).pathname;
 ---
+
 <script data-cfasync="false" type="text/javascript">
-	window.onload = function() {
-		let iframe = document.querySelector('.discord-widget');
-		iframe.src = "https://discord.com/widget?id=717795753111846963&theme=dark";
-	};
+window.onload = function () {
+	let iframe = document.querySelector(".discord-widget");
+	iframe.src = "https://discord.com/widget?id=717795753111846963&theme=dark";
+};
 </script>
 
 <Layout
-	title="Ben's Coding: Programming is my language."
-	description="Programming is my language, cmd + c and cmd + v are my lifeblood."
-	image={`https://${import.meta.env.PUBLIC_DOMAIN}/d3lay-social-preview-dark.png`}
-	path={currentPath}
+  title="Ben's Coding: Programming is my language."
+  description="Programming is my language, cmd + c and cmd + v are my lifeblood."
+  image={`https://${
+    import.meta.env.PUBLIC_DOMAIN
+  }/d3lay-social-preview-dark.png`}
+  path={currentPath}
 >
-	<main>
-		<svg
-			class="background-logo"
-			xmlns="http://www.w3.org/2000/svg"
-			width="500"
-			height="500"
-			fill="none"
-		>
-			<g fill="url(#paint0_linear_1805_24383)" stroke="null">
-				<path
-					fill-rule="evenodd"
-					clip-rule="evenodd"
-					fill="url(#paint0_linear_1805_24383)"
-					d="m294.455 213.534-34.51-20.095a18.43 18.43 0 0 0-18.578 0l-34.51 20.095a18.076 18.076 0 0 0-9.283 16.08v40.212c0 6.695 3.307 12.728 9.283 16.08l34.51 20.106a18.43 18.43 0 0 0 18.59 0l34.498-20.106c5.964-3.352 9.283-9.385 9.283-16.08v-40.212c0-6.694-3.98-12.727-9.283-16.08z"/><path d="M472.957 27.254c0-20.094-21.897-33.506-39.152-22.774L354.18 50.713 283.849 9.84a66.59 66.59 0 0 0-67.024 0L60.219 100.3a67.366 67.366 0 0 0-33.175 58.288v182.265a67.366 67.366 0 0 0 33.187 58.3l155.932 91.12a66.59 66.59 0 0 0 67.013 0l155.944-91.12a67.366 67.366 0 0 0 33.175-58.3V27.266h.662v-.012zm-84.28 279.431c0 14.735-7.948 28.808-20.561 36.175l-96.88 56.292a41.033 41.033 0 0 1-41.136 0l-96.881-56.292c-12.613-7.367-20.574-21.44-20.574-36.175V193.44c0-14.745 7.96-28.819 20.574-36.186l96.22-56.292a41.033 41.033 0 0 1 41.135 0l96.88 56.292c12.602 7.367 20.574 21.44 20.574 36.186v113.246h.661-.011z"
-				/>
-			</g>
-			<defs>
-				<linearGradient
-					id="paint0_linear_1805_24383"
-					x1="247.358"
-					y1="0"
-					x2="247.358"
-					y2="622.479"
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stop-opacity="0.2"></stop>
-					<stop offset="1" stop-opacity="0.1"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-		<h1><span class="text-gradient">Ben's Coding</span></h1>
-		<h2>Programming is my <span class="text-gradient">Language</span></h2>
-		<p class="instructions">
-			My services is under construction. <code>Stay tuned!</code><br />
-			<strong>Key values:</strong> Data-driven, Efficient, Long-termism, Anti-shortcut and Yearning.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<iframe loading="lazy" class="discord-widget" src="" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-			<Card
-				href="mailto:z@benwk.com"
-				title="Contact us"
-				body="Say hi@benwk anytime to reach me."
-			/>
-		</ul>
-		<div class="content-container"></div>
-		<footer>
-			&copy; 2023 Copyright astro.benwk.app
-		</footer>
-		
-	</main>
+  <main>
+    <svg
+      class="background-logo"
+      xmlns="http://www.w3.org/2000/svg"
+      width="500"
+      height="500"
+      fill="none"
+    >
+      <g fill="url(#paint0_linear_1805_24383)" stroke="null">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          fill="url(#paint0_linear_1805_24383)"
+          d="m294.455 213.534-34.51-20.095a18.43 18.43 0 0 0-18.578 0l-34.51 20.095a18.076 18.076 0 0 0-9.283 16.08v40.212c0 6.695 3.307 12.728 9.283 16.08l34.51 20.106a18.43 18.43 0 0 0 18.59 0l34.498-20.106c5.964-3.352 9.283-9.385 9.283-16.08v-40.212c0-6.694-3.98-12.727-9.283-16.08z"
+        ></path><path
+          d="M472.957 27.254c0-20.094-21.897-33.506-39.152-22.774L354.18 50.713 283.849 9.84a66.59 66.59 0 0 0-67.024 0L60.219 100.3a67.366 67.366 0 0 0-33.175 58.288v182.265a67.366 67.366 0 0 0 33.187 58.3l155.932 91.12a66.59 66.59 0 0 0 67.013 0l155.944-91.12a67.366 67.366 0 0 0 33.175-58.3V27.266h.662v-.012zm-84.28 279.431c0 14.735-7.948 28.808-20.561 36.175l-96.88 56.292a41.033 41.033 0 0 1-41.136 0l-96.881-56.292c-12.613-7.367-20.574-21.44-20.574-36.175V193.44c0-14.745 7.96-28.819 20.574-36.186l96.22-56.292a41.033 41.033 0 0 1 41.135 0l96.88 56.292c12.602 7.367 20.574 21.44 20.574 36.186v113.246h.661-.011z"
+        ></path>
+      </g>
+      <defs>
+        <linearGradient
+          id="paint0_linear_1805_24383"
+          x1="247.358"
+          y1="0"
+          x2="247.358"
+          y2="622.479"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-opacity="0.2"></stop>
+          <stop offset="1" stop-opacity="0.1"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+    <h1><span class="text-gradient">Ben's Coding</span></h1>
+    <h2>Programming is my <span class="text-gradient">Language</span></h2>
+    <p class="instructions">
+      My services is under construction. <code>Stay tuned!</code><br />
+      <strong>Key values:</strong> Data-driven, Efficient, Long-termism,
+      Anti-shortcut and Yearning.
+    </p>
+    <ul role="list" class="link-card-grid">
+      <iframe
+        loading="lazy"
+        class="discord-widget"
+        src=""
+        width="350"
+        height="500"
+        allowtransparency="true"
+        frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+      ></iframe>
+      <Card
+        href="mailto:z@benwk.com"
+        title="Contact us"
+        body="Say hi@benwk anytime to reach me."
+      />
+    </ul>
+    <div class="content-container"></div>
+    <footer>&copy; 2023 Copyright astro.benwk.app</footer>
+  </main>
 </Layout>
 
 <style>
-	main {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-    	min-height: calc(100vh - 60px);
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
+  main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 60px);
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+  }
 
-	.content-container {
-		flex: 1;
-	}
-	footer {
-		text-align: center;
-		padding: 1rem 0;
-    	margin-top: 2rem; 
-		font-size: 0.9rem;
-		color: rgba(255, 255, 255, 0.7);
-	}
-	.background-logo {
-		position: absolute;
-		top: 30px;
-		left: 50%;
-		transform: translatex(-50%);
-		max-width: 100%;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 0.5em;
-	}
-	h2 {
-		text-align: center;
-	}
-	.discord-widget {
-		width: 100%;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
+  .content-container {
+    flex: 1;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .background-logo {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translatex(-50%);
+    max-width: 100%;
+    height: auto;
+    z-index: -1;
+  }
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 0.5em;
+  }
+  h2 {
+    text-align: center;
+  }
+  .discord-widget {
+    width: 100%;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .instructions {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+  .instructions code {
+    font-size: 0.8em;
+    font-weight: bold;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.3em 0.4em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent-light));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 2rem;
+    padding: 0;
+  }
 </style>

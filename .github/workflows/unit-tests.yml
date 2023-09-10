@@ -20,6 +20,6 @@ jobs:
         run: npm ci
       - name: Vitest run
         run: npx vitest --coverage
-      - name: 'Report Coverage'
+      - name: "Report Coverage"
         if: always()
-        uses:  davelosert/vitest-coverage-report-action@v2
+        uses: davelosert/vitest-coverage-report-action@v2

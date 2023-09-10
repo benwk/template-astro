@@ -44,5 +44,6 @@ All commands are run from the root of the project, from a terminal:
 ## 🧪 Testing
 
 Currently, we're using:
+
 - Vitest for unit tests
 - Cypress for component tests and e2e tests

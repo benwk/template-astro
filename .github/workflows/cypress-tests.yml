@@ -30,7 +30,7 @@ jobs:
       #     component: true
       - name: Skip for now
         run: echo "Skip for now"
-  
+
   cypress-run-e2e:
     name: E2E Tests
     runs-on: ubuntu-22.04

@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path:  |
+          path: |
             dist
             function
           retention-days: 3
@@ -76,7 +76,7 @@ jobs:
           directory: dist
           branch: main
           workingDirectory: app
-          wranglerVersion: '3'
+          wranglerVersion: "3"
       - name: Outputs
         run: |
           echo "ID: ${{ steps.publish.outputs.id }}"
