@@ -25,12 +25,16 @@ jobs:
 
   deploy-to-production:
     name: Deploy to Production Environment
-    uses: ./.github/workflows/deployment.yml
+    uses: benwk/github-action/.github/workflows/deployment-cloudflare-pages.yml@main
     needs: find-pr-id
     with:
       environment: production
-      public-domain: d3lay.com
-      public-twitter: delay_work
+      public-domain: astro.benwk.app
+      public-twitter: ${{ vars.PUBLIC_TWITTER }}
+      ga-measurement: G-xxxxxxxxxx
+      sentry-project-id: ${{ vars.SENTRY_PROJECT_ID }}
+      sentry-org-id: ${{ vars.SENTRY_ORG_ID }}
       pr-id: ${{ needs.find-pr-id.outputs.pr-id }}
     secrets:
+      SENTRY_PUBLIC_KEY: ${{ secrets.SENTRY_PUBLIC_KEY }}
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

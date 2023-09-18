@@ -6,10 +6,13 @@ on:
 jobs:
   deploy-to-test:
     name: Deploy to Test Environment
-    uses: ./.github/workflows/deployment.yml
+    uses: benwk/github-action/.github/workflows/deployment-cloudflare-pages.yml@main
     with:
       environment: test
-      public-domain: d3lay.test.delay.dev
-      public-twitter: delay_work
+      public-domain: astro.benwk.app
+      public-twitter: ${{ vars.PUBLIC_TWITTER }}
+      ga-measurement: G-XXXXXXXXXX
+      sentry-project-id: ${{ vars.SENTRY_PROJECT_ID }}
+      sentry-org-id: ${{ vars.SENTRY_ORG_ID }}
     secrets:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
