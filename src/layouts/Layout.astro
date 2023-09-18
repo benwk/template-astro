@@ -9,7 +9,9 @@ interface Props {
 import LanguagePicker from "../components/LanguagePicker.astro";
 import HeadHrefLangs from "../i18n/components/HeadHrefLangs.astro";
 const { title, description, image, path } = Astro.props;
-const url = `https://${import.meta.env.PUBLIC_DOMAIN}${path}`;
+const url = `${import.meta.env.PROTOCOL}://${
+  import.meta.env.PUBLIC_DOMAIN
+}${path}`;
 const twitter = `@${import.meta.env.PUBLIC_TWITTER}`;
 ---
 

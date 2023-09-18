@@ -4,7 +4,7 @@ interface Props {
 }
 import { languages } from "../config.js";
 import { generateAlternateLink } from "../index.js";
-const url = `https://${import.meta.env.PUBLIC_DOMAIN}`;
+const url = `${import.meta.env.PROTOCOL}://${import.meta.env.PUBLIC_DOMAIN}`;
 const { path } = Astro.props;
 ---
 
