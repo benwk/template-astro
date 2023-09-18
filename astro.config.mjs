@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import robotsTxt from "astro-robots-txt";
 import partytown from "@astrojs/partytown";
-
 import prefetch from "@astrojs/prefetch";
+import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
@@ -58,6 +58,9 @@ export default defineConfig({
     }),
     prefetch({
       throttle: 3,
+    }),
+    compress({
+      Logger: 0,
     }),
   ],
 });
