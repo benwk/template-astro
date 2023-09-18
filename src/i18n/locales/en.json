@@ -1,0 +1,27 @@
+{
+  "seo": {
+    "home": {
+      "title": "Ben's Coding: Programming is my language.",
+      "description": "Programming is my language, cmd + c and cmd + v are my lifeblood.",
+      "author": "Ben Z.",
+      "keywords": "ben, benwk, coding, blog, astro, template",
+      "image": "ben-social-preview-dark.png",
+      "imageAlt": "Ben Z."
+    }
+  },
+  "home": {
+    "title": "Ben's Coding",
+    "subtitle": "Programming is my <0>Language</0>",
+    "instructions": "My services are under construction. <0>Stay tuned!</0><br /><1>Key values:</1> Data-driven, Efficient, Long-termism, Anti-shortcut and Yearning"
+  },
+  "contact": {
+    "title": "Contact me",
+    "body": "Say hi@benwk.app anytime to reach me."
+  },
+  "copyright": {
+    "body": "2023 Copyright benwk.app, All rights reserved."
+  },
+  "vitest": {
+    "translation": "<0>TranslatedA</0>TranslatedB<1>TranslatedC</1>"
+  }
+}

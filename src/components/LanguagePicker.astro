@@ -1,0 +1,28 @@
+---
+import { languages } from "../i18n/config";
+import { getLangFromUrl, useTranslatedPath } from "../i18n";
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+---
+
+<ul>
+  {
+    Object.entries(languages).map(([language, label]) => (
+      <li>
+        <a
+          href={translatePath("/", language)}
+          rel="prefetch"
+          class={lang === language ? "active" : ""}
+        >
+          {label}
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .active {
+    color: red;
+  }
+</style>
