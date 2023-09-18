@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
 import Icon from "astro-iconify";
 const currentURL = Astro.request.url;
 const currentPath = new URL(currentURL).pathname;
 
-import Translation from "../i18n/components/Translation.astro";
-import { getLangFromUrl, useTranslations } from "../i18n";
+import Translation from "../../i18n/components/Translation.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n";
 
 // i18n
 const lang = getLangFromUrl(Astro.url);

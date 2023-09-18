@@ -6,6 +6,8 @@ interface Props {
   path: string;
 }
 
+import LanguagePicker from "../components/LanguagePicker.astro";
+import HeadHrefLangs from "../i18n/components/HeadHrefLangs.astro";
 const { title, description, image, path } = Astro.props;
 const url = `https://${import.meta.env.PUBLIC_DOMAIN}${path}`;
 const twitter = `@${import.meta.env.PUBLIC_TWITTER}`;
@@ -34,37 +36,39 @@ const twitter = `@${import.meta.env.PUBLIC_TWITTER}`;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
     <title>{title}</title>
+    <HeadHrefLangs path={path} />
   </head>
   <body>
     <slot />
+    <LanguagePicker />
+    <style is:global>
+      :root {
+        --accent: 28, 115, 255;
+        --accent-light: 155, 215, 255;
+        --accent-dark: 8, 50, 130;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 25%,
+          white 50%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background: #13151a;
+        background-size: 224px;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  :root {
-    --accent: 28, 115, 255;
-    --accent-light: 155, 215, 255;
-    --accent-dark: 8, 50, 130;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 25%,
-      white 50%
-    );
-  }
-  html {
-    font-family: system-ui, sans-serif;
-    background: #13151a;
-    background-size: 224px;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
