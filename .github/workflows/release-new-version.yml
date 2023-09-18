@@ -1,0 +1,22 @@
+name: Release a New Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-bump:
+        type: choice
+        description: "Choose the version increment type:"
+        default: patch
+        options:
+          - major
+          - minor
+          - patch
+
+jobs:
+  release-new-version:
+    name: Release a New Version
+    uses: benwk/github-action/.github/workflows/release-it.yml@main
+    if: github.ref == 'refs/heads/main'
+    with:
+      version-bump: ${{ inputs.version-bump }}
+    secrets: inherit
