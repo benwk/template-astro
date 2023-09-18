@@ -1,5 +1,4 @@
-let seenObjects = new WeakSet();
-export function flattenObject(obj, prefix = "") {
+export function flattenObject(obj, prefix = "", seenObjects = new WeakSet()) {
   let flatObject = {};
 
   for (const [key, value] of Object.entries(obj)) {
@@ -10,7 +9,10 @@ export function flattenObject(obj, prefix = "") {
         throw new Error("Circular reference detected");
       }
       seenObjects.add(value);
-      flatObject = { ...flatObject, ...flattenObject(value, newKey) };
+      flatObject = {
+        ...flatObject,
+        ...flattenObject(value, newKey, seenObjects),
+      };
     } else {
       flatObject[newKey] = value;
     }
