@@ -1,0 +1,24 @@
+---
+import { getLangFromUrl, useTranslations, interpolate } from "..";
+
+const lang = getLangFromUrl(Astro.url);
+
+interface Props {
+  i18n: string;
+}
+const { i18n } = Astro.props;
+const referenceString = await Astro.slots.render("default");
+const t = useTranslations(lang);
+const localizedString = t(i18n);
+if (localizedString === i18n) {
+  console.warn(`WARNING(i18n): missing translation key ${i18n}.`);
+}
+---
+
+{
+  localizedString === i18n || !localizedString ? (
+    <Fragment set:html={referenceString} />
+  ) : (
+    <Fragment set:html={interpolate(localizedString, referenceString)} />
+  )
+}

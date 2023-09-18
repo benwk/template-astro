@@ -1,0 +1,19 @@
+---
+interface Props {
+  path: string;
+}
+import { languages } from "../config.js";
+import { generateAlternateLink } from "../index.js";
+const url = `https://${import.meta.env.PUBLIC_DOMAIN}`;
+const { path } = Astro.props;
+---
+
+{
+  Object.entries(languages).map(([language]) => (
+    <link
+      rel="alternate"
+      hreflang={language}
+      href={generateAlternateLink(path, language, url)}
+    />
+  ))
+}

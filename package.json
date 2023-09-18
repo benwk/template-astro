@@ -1,15 +1,22 @@
 {
   "name": "template-astro",
+  "description": "Ben's Astro Template",
   "type": "module",
   "version": "0.0.0",
+  "author": "Ben Z.",
+  "bin": {
+    "translate": "./src/i18n/cli/index.js"
+  },
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
+    "dev": "npx translate && astro dev",
+    "start": "npx translate && astro dev",
+    "build": "npx translate && astro build",
+    "preview": "npx translate && astro preview",
+    "astro": "npx translate && astro",
     "lint": "eslint './src/**/*.{js,astro}'",
-    "test": "vitest run --coverage",
+    "test": "vitest run --coverage && cypress run",
+    "test:unit": "vitest run --coverage",
+    "test:e2e": "cypress run",
     "release": "release-it"
   },
   "dependencies": {

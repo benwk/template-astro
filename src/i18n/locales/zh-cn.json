@@ -1,0 +1,27 @@
+{
+  "seo": {
+    "home": {
+      "title": "Ben's Coding：编程才是我的母语。",
+      "description": "编程才是我的母语，cmd + c 和 cmd + v 是我的命脉。",
+      "author": "Ben Z.",
+      "keywords": "ben, benwk, coding, 博客, astro, 模板",
+      "image": "ben-social-preview-dark-zh-cn.png",
+      "imageAlt": "Ben Z."
+    }
+  },
+  "home": {
+    "title": "Ben's Coding",
+    "subtitle": "编程才是我的<0>母语</0>。",
+    "instructions": "我的服务正在建设中。 <0>敬请期待！</0><br /><1>关键价值：</1> 数据驱动 · 效率优先 · 长期主义 · 拒绝捷径 · 保持渴望"
+  },
+  "contact": {
+    "title": "联系我们",
+    "body": "发送 hi@benwk.app 邮件可以与我联系。"
+  },
+  "copyright": {
+    "body": "&copy;2023 benwk.app 版权所有，保留一切权利。"
+  },
+  "vitest": {
+    "translation": "<0>TranslatedA</0>TranslatedB<1>TranslatedC</1>"
+  }
+}

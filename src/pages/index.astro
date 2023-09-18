@@ -4,6 +4,13 @@ import Card from "../components/Card.astro";
 import Icon from "astro-iconify";
 const currentURL = Astro.request.url;
 const currentPath = new URL(currentURL).pathname;
+
+import Translation from "../i18n/components/Translation.astro";
+import { getLangFromUrl, useTranslations } from "../i18n";
+
+// i18n
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <script data-cfasync="false" type="text/javascript">
@@ -23,12 +30,18 @@ window.onload = function () {
 >
   <main>
     <Icon name="bg-logo" class="background-logo" />
-    <h1><span class="text-gradient">Ben's Coding</span></h1>
-    <h2>Programming is my <span class="text-gradient">Language</span></h2>
+    <h1><span class="text-gradient">{t("home.title")}</span></h1>
+    <h2>
+      <Translation i18n="home.subtitle">
+        Programming is my <span class="text-gradient">Language</span>
+      </Translation>
+    </h2>
     <p class="instructions">
-      My services is under construction. <code>Stay tuned!</code><br />
-      <strong>Key values:</strong> Data-driven, Efficient, Long-termism,
-      Anti-shortcut and Yearning.
+      <Translation i18n="home.instructions">
+        My services is under construction. <code>Stay tuned!</code><br />
+        <strong>Key values:</strong> Data-driven, Efficient, Long-termism,
+        Anti-shortcut and Yearning.
+      </Translation>
     </p>
     <ul role="list" class="link-card-grid">
       <iframe
@@ -43,12 +56,12 @@ window.onload = function () {
       ></iframe>
       <Card
         href="mailto:z@benwk.com"
-        title="Contact us"
-        body="Say hi@benwk.app anytime to reach me."
+        title={t("contact.title")}
+        body={t("contact.body")}
       />
     </ul>
     <div class="content-container"></div>
-    <footer>&copy; 2023 Copyright astro.benwk.app</footer>
+    <footer>{t("copyright.body")}</footer>
   </main>
 </Layout>
 
