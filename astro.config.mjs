@@ -69,7 +69,6 @@ export default defineConfig({
       short_name: "Ben Z.",
       description:
         "Programming is my language, cmd + c and cmd + v are my lifeblood.",
-      start_url: "/",
       theme_color: "#0246BC",
       background_color: "#13151a",
       display: "standalone",
