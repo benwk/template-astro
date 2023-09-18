@@ -1,11 +1,12 @@
 ---
 interface Props {
+  url: string;
   path: string;
 }
+const { url, path } = Astro.props;
+
 import { languages } from "../config.js";
 import { generateAlternateLink } from "../index.js";
-const url = `${import.meta.env.PROTOCOL}://${import.meta.env.PUBLIC_DOMAIN}`;
-const { path } = Astro.props;
 ---
 
 {

@@ -11,6 +11,10 @@ import { getLangFromUrl, useTranslations } from "../../i18n";
 // i18n
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const { PROTOCOL, HOSTNAME, PORT } = import.meta.env;
+const portSegment = PORT ? `:${PORT}` : "";
+const url = `${PROTOCOL}://${HOSTNAME}${portSegment}`;
 ---
 
 <script data-cfasync="false" type="text/javascript">
@@ -23,9 +27,7 @@ window.onload = function () {
 <Layout
   title="Ben's Coding: Programming is my language."
   description="Programming is my language, cmd + c and cmd + v are my lifeblood."
-  image={`${import.meta.env.PROTOCOL}://${
-    import.meta.env.PUBLIC_DOMAIN
-  }/d3lay-social-preview-dark.png`}
+  image={`${url}/d3lay-social-preview-dark.png`}
   path={currentPath}
 >
   <main>

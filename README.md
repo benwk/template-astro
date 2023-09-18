@@ -6,8 +6,7 @@
 
 ```shell
 # Configs for meta of og and twitter
-PUBLIC_DOMAIN=astro.benwk.app
-PUBLIC_TWITTER=benwkz
+TWITTER=benwkz
 PROTOCOL=https
 GA_MEASUREMENT=G-xxxx
 ENVIRONMENT=development

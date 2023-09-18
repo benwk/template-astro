@@ -9,10 +9,10 @@ interface Props {
 import LanguagePicker from "../components/LanguagePicker.astro";
 import HeadHrefLangs from "../i18n/components/HeadHrefLangs.astro";
 const { title, description, image, path } = Astro.props;
-const url = `${import.meta.env.PROTOCOL}://${
-  import.meta.env.PUBLIC_DOMAIN
-}${path}`;
-const twitter = `@${import.meta.env.PUBLIC_TWITTER}`;
+const { PROTOCOL, HOSTNAME, PORT } = import.meta.env;
+const portSegment = PORT ? `:${PORT}` : "";
+const url = `${PROTOCOL}://${HOSTNAME}${portSegment}`;
+const twitter = `@${import.meta.env.TWITTER}`;
 ---
 
 <!doctype html>
@@ -38,7 +38,7 @@ const twitter = `@${import.meta.env.PUBLIC_TWITTER}`;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={image} />
     <title>{title}</title>
-    <HeadHrefLangs path={path} />
+    <HeadHrefLangs url={url} path={path} />
   </head>
   <body>
     <slot />

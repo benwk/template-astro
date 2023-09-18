@@ -29,8 +29,8 @@ jobs:
     needs: find-pr-id
     with:
       environment: staging
-      public-domain: astro.benwk.app
-      public-twitter: ${{ vars.PUBLIC_TWITTER }}
+      hostname: astro.benwk.app
+      twitter: ${{ vars.TWITTER }}
       ga-measurement: G-xxxxxxx
       sentry-project-id: ${{ vars.SENTRY_PROJECT_ID }}
       sentry-org-id: ${{ vars.SENTRY_ORG_ID }}
