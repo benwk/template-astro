@@ -9,10 +9,7 @@ export function flattenObject(obj, prefix = "", seenObjects = new WeakSet()) {
         throw new Error("Circular reference detected");
       }
       seenObjects.add(value);
-      flatObject = {
-        ...flatObject,
-        ...flattenObject(value, newKey, seenObjects),
-      };
+      Object.assign(flatObject, flattenObject(value, newKey, seenObjects));
     } else {
       flatObject[newKey] = value;
     }
