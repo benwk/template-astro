@@ -11,9 +11,8 @@ interface Props {
   keywords: string;
   image: string;
   imageAlt: string;
-  path: string;
 }
-const { title, description, author, keywords, image, imageAlt, path } =
+const { title, description, author, keywords, image, imageAlt } =
   Astro.props;
 const {
   PROTOCOL = "http",
@@ -23,6 +22,7 @@ const {
 } = import.meta.env;
 const portSegment = PORT ? `:${PORT}` : "";
 const baseURL = `${PROTOCOL}://${HOSTNAME}${portSegment}`;
+const path = Astro.url.pathname;
 ---
 
 <!doctype html>

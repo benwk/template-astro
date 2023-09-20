@@ -2,8 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
 import Icon from "astro-iconify";
-const currentURL = Astro.request.url;
-const currentPath = new URL(currentURL).pathname;
 
 import Translation from "../i18n/components/Translation.astro";
 import { getLangFromUrl, useTranslations } from "../i18n";
@@ -11,10 +9,15 @@ import { getLangFromUrl, useTranslations } from "../i18n";
 // i18n
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-const { PROTOCOL, HOSTNAME, PORT } = import.meta.env;
+// SEO
+const { HOSTNAME = "localhost", PORT, PROTOCOL = "http" } = import.meta.env;
 const portSegment = PORT ? `:${PORT}` : "";
-const url = `${PROTOCOL}://${HOSTNAME}${portSegment}`;
+const title = t("seo.home.title");
+const description = t("seo.home.description");
+const author = t("seo.home.author");
+const keywords = t("seo.home.keywords");
+const image = `${PROTOCOL}://${HOSTNAME}${portSegment}/${t("seo.home.image")}`;
+const imageAlt = t("seo.home.imageAlt");
 ---
 
 <script data-cfasync="false" type="text/javascript">
@@ -25,10 +28,12 @@ window.onload = function () {
 </script>
 
 <Layout
-  title="Ben's Coding: Programming is my language."
-  description="Programming is my language, cmd + c and cmd + v are my lifeblood."
-  image={`${url}/d3lay-social-preview-dark.png`}
-  path={currentPath}
+  title={title}
+  description={description}
+  author={author}
+  keywords={keywords}
+  image={image}
+  imageAlt={imageAlt}
 >
   <main>
     <Icon name="bg-logo" class="background-logo" />
