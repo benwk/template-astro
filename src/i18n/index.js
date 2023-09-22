@@ -30,21 +30,6 @@ export function removeLangPrefix(path, lang) {
   return path;
 }
 
-export function getTranslatedPath(path, language, url) {
-  const lang = getLangFromUrl(new URL(path, url));
-  const translatePath = useTranslatedPath(lang);
-  const pathWithoutPrefix = removeLangPrefix(path, lang);
-  return translatePath(pathWithoutPrefix, language);
-}
-
-// Function to generate alternate link
-export function generateAlternateLink(path, language, url) {
-  // const lang = getLangFromUrl(new URL(path, url));
-  // const translatePath = useTranslatedPath(lang);
-  // const pathWithoutPrefix = removeLangPrefix(path, lang);
-  return url + getTranslatedPath(path, language, url);
-}
-
 /**
  * Interpolates a localized string (loaded with the i18nKey) to a given reference string.
  */

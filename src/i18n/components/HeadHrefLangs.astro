@@ -1,12 +1,17 @@
 ---
 interface Props {
-  url: string;
-  path: string;
+  baseURL: string;
 }
-const { url, path } = Astro.props;
-
+const { baseURL } = Astro.props;
 import { languages } from "../config.js";
-import { generateAlternateLink } from "../index.js";
+import {
+  useTranslatedPath,
+  removeLangPrefix,
+  getLangFromUrl,
+} from "../index.js";
+const lang = getLangFromUrl(Astro.url);
+const path = removeLangPrefix(Astro.url.pathname, lang);
+const translatePath = useTranslatedPath();
 ---
 
 {
@@ -14,7 +19,7 @@ import { generateAlternateLink } from "../index.js";
     <link
       rel="alternate"
       hreflang={language}
-      href={generateAlternateLink(path, language, url)}
+      href={baseURL + translatePath(path, language)}
     />
   ))
 }

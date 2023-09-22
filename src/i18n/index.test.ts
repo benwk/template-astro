@@ -5,23 +5,19 @@ import {
   useTranslations,
   useTranslatedPath,
   removeLangPrefix,
-  generateAlternateLink,
   interpolate,
 } from "./index.js";
-import { ui, defaultLang, showDefaultLang } from "./config.js";
-
-// Mock URL and ui object for testing
-globalThis.URL = class {
-  constructor(path) {
-    this.pathname = path;
-  }
-};
+import { ui, defaultLang } from "./config.js";
 
 // Test for getLangFromUrl
 test("getLangFromUrl", () => {
-  expect(getLangFromUrl(new URL("/somepath"))).toBe("en");
-  expect(getLangFromUrl(new URL("/zh-cn/somepath"))).toBe("zh-cn");
-  expect(getLangFromUrl(new URL("/fr/somepath"))).toBe(defaultLang);
+  expect(getLangFromUrl(new URL("http://localhost:4321/somepath"))).toBe("en");
+  expect(getLangFromUrl(new URL("http://localhost:4321/zh-cn/somepath"))).toBe(
+    "zh-cn"
+  );
+  expect(getLangFromUrl(new URL("http://localhost:4321/fr/somepath"))).toBe(
+    defaultLang
+  );
 });
 
 // Test for useTranslations
@@ -40,13 +36,6 @@ test("useTranslatedPath", () => {
 test("removeLangPrefix", () => {
   expect(removeLangPrefix("/en/somepath", "en")).toBe("/somepath");
   expect(removeLangPrefix("/somepath", "en")).toBe("/somepath");
-});
-
-// Test for generateAlternateLink
-test("generateAlternateLink", () => {
-  expect(
-    generateAlternateLink("/somepath", "zh-cn", "http://example.com")
-  ).toBe("http://example.com/zh-cn/somepath");
 });
 
 // Test for interpolate

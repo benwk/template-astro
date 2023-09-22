@@ -6,10 +6,15 @@
 
 ```shell
 # Configs for meta of og and twitter
+PROTOCOL=http
+HOSTNAME=localhost
+PORT=4321
 TWITTER=benwkz
-PROTOCOL=https
 GA_MEASUREMENT=G-xxxx
 ENVIRONMENT=development
+SENTRY_PUBLIC_KEY=xxxxx
+SENTRY_PROJECT_ID=00000
+SENTRY_ORG_ID=oxxxx
 ```
 
 ## 🚀 Project Structure
