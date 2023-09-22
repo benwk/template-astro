@@ -65,7 +65,17 @@ export default defineConfig({
     }),
     webmanifest({
       name: "Ben's Astro Template",
-      icon: "src/icons/manifest.svg",
+      config: {
+        crossOrigin: "use-credentials",
+        icon: "src/icons/logo-icon.svg",
+        createFavicon: true,
+        insertFaviconLinks: true,
+        theme_color: "#0246BC",
+        insertThemeColorMeta: true,
+        insertAppleTouchLinks: true,
+        insertManifestLink: true,
+      },
+      icon: "src/icons/logo-icon.svg",
       short_name: "Ben Z.",
       description:
         "Programming is my language, cmd + c and cmd + v are my lifeblood.",

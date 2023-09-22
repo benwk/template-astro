@@ -1,44 +1,50 @@
 ---
+// Components
+import SEO from "../components/SEO.astro";
+import LanguagePicker from "../components/LanguagePicker.astro";
+import HeadHrefLangs from "../i18n/components/HeadHrefLangs.astro";
+// Types
 interface Props {
   title: string;
   description: string;
+  author: string;
+  keywords: string;
   image: string;
-  path: string;
+  imageAlt: string;
 }
-
-import LanguagePicker from "../components/LanguagePicker.astro";
-import HeadHrefLangs from "../i18n/components/HeadHrefLangs.astro";
-const { title, description, image, path } = Astro.props;
-const { PROTOCOL, HOSTNAME, PORT } = import.meta.env;
+const { title, description, author, keywords, image, imageAlt } =
+  Astro.props;
+const {
+  PROTOCOL = "http",
+  HOSTNAME = "localhost",
+  PORT,
+  TWITTER = "benwkz",
+} = import.meta.env;
 const portSegment = PORT ? `:${PORT}` : "";
-const url = `${PROTOCOL}://${HOSTNAME}${portSegment}`;
-const twitter = `@${import.meta.env.TWITTER}`;
+const baseURL = `${PROTOCOL}://${HOSTNAME}${portSegment}`;
+const path = Astro.url.pathname;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <SEO
+      title={title}
+      description={description}
+      author={author}
+      keywords={keywords}
+      image={image}
+      imageAlt={imageAlt}
+      url={baseURL + path}
+      twitter={TWITTER}
+    />
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
-    <!-- OGP(Open Graph Protocol) -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
-    <meta property="og:url" content={url} />
-    <meta property="og:type" content="website" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content={twitter} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-    <title>{title}</title>
-    <HeadHrefLangs url={url} path={path} />
+    <HeadHrefLangs url={baseURL} path={path} />
   </head>
   <body>
     <slot />
