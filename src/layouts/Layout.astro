@@ -3,6 +3,7 @@
 import SEO from "../components/SEO.astro";
 import LanguagePicker from "../components/LanguagePicker.astro";
 import HeadHrefLangs from "../i18n/components/HeadHrefLangs.astro";
+import Sentry from "../components/Sentry.astro";
 // Types
 interface Props {
   title: string;
@@ -12,13 +13,13 @@ interface Props {
   image: string;
   imageAlt: string;
 }
-const { title, description, author, keywords, image, imageAlt } =
-  Astro.props;
+const { title, description, author, keywords, image, imageAlt } = Astro.props;
 const {
   PROTOCOL = "http",
   HOSTNAME = "localhost",
   PORT,
   TWITTER = "benwkz",
+  ENVIRONMENT = "development",
 } = import.meta.env;
 const portSegment = PORT ? `:${PORT}` : "";
 const baseURL = `${PROTOCOL}://${HOSTNAME}${portSegment}`;
@@ -45,6 +46,7 @@ const path = Astro.url.pathname;
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
     <HeadHrefLangs url={baseURL} path={path} />
+    {ENVIRONMENT === "development" ? "" : <Sentry />}
   </head>
   <body>
     <slot />

@@ -1,0 +1,48 @@
+---
+const {
+  SENTRY_PUBLIC_KEY,
+  SENTRY_PROJECT_ID,
+  SENTRY_ORG_ID,
+  npm_package_version,
+  ENVIRONMENT,
+} = import.meta.env;
+---
+
+<script
+  is:inline
+  src={`https://js.sentry-cdn.com/${SENTRY_PUBLIC_KEY}.min.js`}
+  crossorigin="anonymous"></script>
+
+<!-- Recommended: Use this bundle for replay, error, and performance monitoring -->
+<script
+  is:inline
+  src="https://browser.sentry-cdn.com/7.69.0/bundle.tracing.replay.min.js"
+  integrity="sha384-6ZlY7nOHgnD0vXeSWEgeSHy/+WXQkLYa52vA7d20SFsyRhhCU9mGOIGSgNlbzdSS"
+  crossorigin="anonymous"></script>
+
+<script
+  is:inline
+  define:vars={{
+    SENTRY_PUBLIC_KEY,
+    SENTRY_PROJECT_ID,
+    SENTRY_ORG_ID,
+    npm_package_version,
+    ENVIRONMENT,
+  }}
+>
+Sentry.onLoad(function () {
+  Sentry.init({
+    dsn: `https://${SENTRY_PUBLIC_KEY}@${SENTRY_ORG_ID}.ingest.sentry.io/${SENTRY_PROJECT_ID}`,
+    // This sets the sample rate to be 10%. You may want this to be 100% while
+    // in development and sample at a lower rate in production
+    replaysSessionSampleRate: 0.1,
+    // If the entire session is not sampled, use the below sample rate to sample
+    // sessions when an error occurs.
+    replaysOnErrorSampleRate: 1.0,
+
+    // integrations: [new Sentry.Replay()],
+    release: npm_package_version,
+    environment: ENVIRONMENT,
+  });
+});
+</script>
