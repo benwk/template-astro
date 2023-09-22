@@ -66,6 +66,7 @@ export default defineConfig({
     webmanifest({
       name: "Ben's Astro Template",
       config: {
+        crossOrigin: "use-credentials",
         icon: "src/icons/logo-icon.svg",
         createFavicon: true,
         insertFaviconLinks: true,

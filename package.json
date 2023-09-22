@@ -5,14 +5,17 @@
   "version": "0.0.0",
   "author": "Ben Z.",
   "bin": {
-    "translate": "./src/i18n/cli/index.js"
+    "translate": "./src/i18n/cli/index.js",
+    "localize": "./src/i18n/cli/localize.js"
   },
   "scripts": {
     "dev": "npx translate && astro dev",
     "start": "npx translate && astro dev",
-    "build": "npx translate && astro build",
+    "build": "npx translate && astro build && npx localize",
     "preview": "npx translate && astro preview",
     "astro": "npx translate && astro",
+    "translate": "npx translate",
+    "localize": "npx localize",
     "lint": "eslint './src/**/*.{js,astro}'",
     "test": "vitest run --coverage && cypress run",
     "test:unit": "vitest run --coverage",
