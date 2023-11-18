@@ -25,8 +25,8 @@
   "dependencies": {
     "@astrojs/partytown": "^2.0.0",
     "@astrojs/prefetch": "^0.4.0",
-    "@astrojs/sitemap": "^3.0.0",
-    "astro": "^3.0.7",
+    "@astrojs/sitemap": "^3.0.3",
+    "astro": "^3.5.5",
     "astro-compress": "^2.2.3",
     "astro-iconify": "^1.2.0",
     "astro-robots-txt": "^1.0.0",
